@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Sổ bài tập gym và ngoài trời theo nhóm cơ, mỗi bài có clip minh họa và 3 bước làm theo.">
+<meta name="description" content="DUY tập Gym: bài tập gym và ngoài trời theo nhóm cơ, mỗi bài có clip minh họa và 3 bước làm theo.">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img,video{max-width:100%}[hidden]{display:none!important}</style>
 <title>DUY tập Gym</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -233,8 +233,8 @@ function card(x){
 function renderList(){
   const items=filtered().sort((a,b)=>a.name.localeCompare(b.name,"vi"));
   const el=$("#list");
-  if(!state.loaded){el.innerHTML=`<div class="empty"><b>Đang mở sổ…</b>Các bài tập sẽ hiện ở đây theo từng nhóm cơ.</div>`;return}
-  if(!state.items.length){el.innerHTML=`<div class="empty"><b>Sổ còn trống</b>Sổ đang được cập nhật${state.canWrite?', hoặc bấm “+ Thêm bài”':""}.</div>`;return}
+  if(!state.loaded){el.innerHTML=`<div class="empty"><b>Đang tải bài tập…</b>Các bài tập sẽ hiện ở đây theo từng nhóm cơ.</div>`;return}
+  if(!state.items.length){el.innerHTML=`<div class="empty"><b>Chưa có bài tập</b>Trang đang được cập nhật${state.canWrite?', hoặc bấm “+ Thêm bài”':""}.</div>`;return}
   if(!items.length){el.innerHTML=`<div class="empty"><b>Không có bài phù hợp</b>Thử nhóm cơ hoặc nơi tập khác.</div>`;return}
   if(state.group!=="all"){el.innerHTML=`<div class="grid" style="margin-top:16px">${items.map(card).join("")}</div>`;return}
   el.innerHTML=GROUPS.map(g=>{
@@ -350,7 +350,7 @@ function openEditor(x){
       media:media.map(m=>({id:m.id,type:m.type})),created:x.created||new Date().toISOString().slice(0,10)};
     $("#saveE").disabled=true;st.className="status";st.textContent="Đang lưu…";
     try{await state.db.collection("exercises").doc(id).set(doc);closeOverlay();openDetail(id)}
-    catch(e){$("#saveE").disabled=false;st.className="status err";st.textContent=e&&e.code==="invalid_argument"?"Bạn không có quyền ghi vào sổ này.":"Chưa lưu được. Thử lại sau vài giây."}
+    catch(e){$("#saveE").disabled=false;st.className="status err";st.textContent=e&&e.code==="invalid_argument"?"Bạn không có quyền ghi vào trang này.":"Chưa lưu được. Thử lại sau vài giây."}
   };
   $("#f-name").focus();
 }
