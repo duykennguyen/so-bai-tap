@@ -69,7 +69,8 @@ h1 small{display:block;font-family:var(--body);font-size:13px;font-weight:500;le
 
 .section-h{font-family:var(--display);text-transform:uppercase;font-size:26px;margin:22px 0 10px;display:flex;align-items:center;gap:10px}
 .section-h .bar{width:6px;height:22px;border-radius:3px;background:var(--c)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:560px){.grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}}
 @media (min-width:700px){.grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}}
 .card{background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;display:flex;flex-direction:column;border:1px solid var(--line);text-align:left;padding:0}
 .card:hover{border-color:var(--accent)}
@@ -128,6 +129,22 @@ label textarea{min-height:84px;resize:vertical}
 .status{font-size:13px;color:var(--muted);min-height:1.2em}
 .status.err{color:var(--warn)}
 .credit{margin-top:32px;font-size:12.5px;color:var(--muted);text-align:center}
+@media (max-width:559px){
+  .wrap{padding-inline:10px;padding-block:12px 48px}
+  .rail{margin-inline:-10px;padding:8px 10px 8px;margin-top:10px}
+  h1{font-size:34px}
+  h1 small{font-size:12px;margin-top:4px}
+  .btn{padding:7px 12px;min-height:38px;font-size:14px}
+  .g{font-size:15px;padding:6px 11px}
+  .seg button{padding:5px 9px;font-size:12px}
+  .search{padding:6px 10px;font-size:13px}
+  .section-h{font-size:21px;margin:16px 0 8px}
+  .card{border-radius:10px}
+  .cbody{padding:6px 7px 8px;flex-direction:column;align-items:flex-start;gap:2px}
+  .cname{font-size:14.5px;line-height:1.1}
+  .cdose{font-size:13px}
+  .badge{font-size:10px;padding:2px 6px;top:5px;left:5px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
