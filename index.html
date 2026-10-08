@@ -231,7 +231,7 @@ function card(x){
 }
 
 function renderList(){
-  const items=filtered().sort((a,b)=>a.name.localeCompare(b.name,"vi"));
+  const items=filtered().sort((a,b)=>((a.top??999)-(b.top??999))||a.name.localeCompare(b.name,"vi"));
   const el=$("#list");
   if(!state.loaded){el.innerHTML=`<div class="empty"><b>Đang tải bài tập…</b>Các bài tập sẽ hiện ở đây theo từng nhóm cơ.</div>`;return}
   if(!state.items.length){el.innerHTML=`<div class="empty"><b>Chưa có bài tập</b>Trang đang được cập nhật${state.canWrite?', hoặc bấm “+ Thêm bài”':""}.</div>`;return}
